@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snow Sales 2027 | Club Med × GW Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bk:#0f0f0f;--dk:#1a1a1a;--ch:#2a2a2a;--gd:#555;--gm:#888;--gl:#bbb;
+--ow:#f7f6f3;--cr:#ede9e2;--wh:#fff;
+--ac:#c8a960;--acd:#a88b3d;--acl:#e8d9a8;
+--cm:#5b6fa6;--cmlight:#8c9fd4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--bk);background:var(--wh);-webkit-font-smoothing:antialiased;font-size:17px}
+h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:.4s}
+.nav.sc{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);box-shadow:0 1px 30px rgba(0,0,0,.06);padding:.8rem 3rem}
+.nav-logo img{height:48px;transition:.3s}
+.nav.sc .nav-logo .lw{display:none}.nav.sc .nav-logo .ld{display:block}.nav-logo .ld{display:none}
+.nav-cta{padding:.65rem 1.5rem;border:1.5px solid rgba(255,255,255,.4);border-radius:50px;color:var(--wh);text-decoration:none;font-size:.9rem;font-weight:600;letter-spacing:.3px;transition:.3s}
+.nav.sc .nav-cta{border-color:var(--bk);color:var(--bk)}
+.nav-cta:hover{background:var(--ac);color:var(--bk);border-color:var(--ac)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:6rem 3rem 4rem;background:var(--bk);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1920&q=80') center/cover;opacity:.4}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.15) 50%,rgba(0,0,0,.4) 100%)}
+.hero-c{position:relative;z-index:2;max-width:900px}
+.hero-cm{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.hero-cm-badge{background:rgba(91,111,166,.2);border:1px solid rgba(91,111,166,.5);padding:.6rem 1.4rem;border-radius:8px;display:flex;align-items:center;gap:.6rem}
+.hero-cm-badge span{font-size:.85rem;font-weight:700;color:var(--cmlight);letter-spacing:1.5px;text-transform:uppercase}
+.hero-gw{color:var(--acl);font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.hero h1{font-size:clamp(3.5rem,8vw,6.5rem);font-weight:400;color:var(--wh);line-height:1;margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;color:var(--acl)}
+.hero-info{display:flex;gap:3rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-info-i{color:rgba(255,255,255,.65);font-size:1.05rem;line-height:1.4}
+.hero-info-i strong{display:block;color:var(--wh);font-size:1.3rem;font-weight:700;margin-bottom:.15rem}
+.hero-acts{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;padding:1.1rem 2.2rem;background:var(--ac);color:var(--bk);border-radius:50px;text-decoration:none;font-weight:700;font-size:1.05rem;transition:.3s;border:none;cursor:pointer}
+.btn-p:hover{background:var(--acd);transform:translateY(-1px)}
+.btn-s{display:inline-flex;align-items:center;gap:.5rem;padding:1.1rem 2.2rem;background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.3);border-radius:50px;text-decoration:none;font-weight:500;font-size:1.05rem;transition:.3s}
+.btn-s:hover{border-color:var(--wh)}
+
+/* EXPERT */
+.expert{background:var(--bk);padding:4rem 3rem;text-align:center}
+.expert-inner{max-width:700px;margin:0 auto}
+.expert-label{font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:1rem}
+.expert h2{font-size:2.2rem;color:var(--wh);font-weight:400;line-height:1.3;margin-bottom:1.5rem}
+.expert h2 em{color:var(--acl);font-style:italic}
+.expert p{color:var(--gl);font-size:1.05rem;line-height:1.7}
+
+/* SECTION COMMON */
+.sec{padding:5rem 3rem}
+.sec-ey{font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gm);text-align:center;margin-bottom:.5rem}
+.sec-h{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;text-align:center;line-height:1.15;margin-bottom:3rem}
+
+/* TIMELINE */
+.tl-sec{background:var(--ow)}
+.tl-intro{max-width:700px;margin:0 auto 2.5rem;text-align:center}
+.tl-intro p{font-size:1.05rem;color:var(--gd);line-height:1.7}
+.tl-intro .tl-now-badge{display:inline-block;background:var(--ac);color:var(--bk);padding:.35rem 1rem;border-radius:5px;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+.tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1000px;margin:0 auto}
+.tl-s{text-align:center;padding:2rem 1.5rem;position:relative}
+.tl-s::after{content:'';position:absolute;top:2.5rem;right:0;width:1px;height:50px;background:var(--gl)}
+.tl-s:last-child::after{display:none}
+.tl-s.now{background:var(--wh);border-radius:16px;box-shadow:0 2px 25px rgba(0,0,0,.06)}
+.tl-s.now::after{display:none}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--gl);margin:0 auto 1rem}
+.tl-s.now .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgba(200,169,96,.2)}
+.tl-dates{font-size:.85rem;font-weight:700;color:var(--acd);margin-bottom:.3rem}
+.tl-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;margin-bottom:.3rem}
+.tl-desc{font-size:.9rem;color:var(--gm);line-height:1.4}
+.tl-s.now .tl-desc{color:var(--gd);font-weight:500}
+.tl-tag{display:inline-block;margin-top:.5rem;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:.2rem .6rem;border-radius:4px}
+.tl-tag-open{background:rgba(200,169,96,.15);color:var(--acd)}
+.tl-tag-sale{background:rgba(200,169,96,.08);color:var(--gm)}
+
+/* RESORTS */
+.resorts-sec{background:var(--wh)}
+.filter-row{display:flex;justify-content:center;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.filter-row button{padding:.55rem 1.3rem;border:1px solid var(--cr);background:var(--wh);border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--gd);cursor:pointer;transition:.3s}
+.filter-row button.act,.filter-row button:hover{background:var(--bk);color:var(--wh);border-color:var(--bk)}
+.filter-label{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gm);text-align:center;margin-bottom:.6rem}
+
+/* PISTE LEGEND */
+.piste-legend{display:flex;justify-content:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.piste-legend-i{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--gd)}
+.piste-legend-i span{width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:0}
+
+/* FEATURED */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto 2.5rem}
+.feat-card{position:relative;border-radius:20px;overflow:hidden;height:420px;cursor:pointer;transition:.4s}
+.feat-card:hover{transform:scale(1.01)}
+.feat-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:.6s}
+.feat-card:hover .feat-card-bg{transform:scale(1.05)}
+.feat-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.05) 55%)}
+.feat-card-c{position:absolute;bottom:0;left:0;right:0;padding:2rem;z-index:2}
+.feat-badge{display:inline-block;padding:.3rem .75rem;border-radius:5px;font-size:.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:.75rem}
+.feat-badge.gw{background:var(--ac);color:var(--bk)}
+.feat-badge.ec{background:rgba(91,111,166,.9);color:var(--wh)}
+.feat-badge.young{background:rgba(220,80,60,.85);color:var(--wh)}
+.feat-badge.family{background:rgba(60,160,100,.85);color:var(--wh)}
+.feat-card-c h3{font-size:2rem;font-weight:500;color:var(--wh);margin-bottom:.2rem}
+.feat-card-c .fl{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:.5rem}
+.feat-card-c .fp{font-size:1rem;color:var(--acl)}
+.feat-card-c .fp strong{font-family:'Playfair Display',serif;font-size:1.5rem}
+.feat-card-c .ftags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem}
+.feat-card-c .ftag{font-size:.7rem;padding:.2rem .5rem;background:rgba(255,255,255,.15);border-radius:4px;color:rgba(255,255,255,.8)}
+.feat-card-c .fpistas{display:flex;gap:.25rem;margin-top:.6rem}
+.feat-card-c .fpistas span{width:22px;height:22px;border-radius:50%;font-size:.6rem;font-weight:700;color:var(--wh);display:flex;align-items:center;justify-content:center}
+.feat-card-c .fair{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:.1rem}
+
+/* ALL RESORTS */
+.all-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;max-width:1200px;margin:0 auto}
+.r-mini{padding:1.5rem;border:1px solid var(--cr);border-radius:16px;cursor:pointer;transition:.3s}
+.r-mini:hover{border-color:var(--bk);background:var(--ow)}
+.r-mini h4{font-size:1.4rem;font-weight:600;margin-bottom:.2rem}
+.r-mini .rc{font-size:.85rem;color:var(--gm);margin-bottom:.6rem}
+.r-mini .rtags{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.6rem}
+.rtag{font-size:.72rem;padding:.2rem .55rem;border-radius:4px}
+.rtag-family{background:#e6f4ea;color:#1e7e34}.rtag-young{background:#fde8e5;color:#c0392b}
+.rtag-luxury{background:#eee8f5;color:#6c3483}.rtag-value{background:#e8f0fe;color:#2471a3}
+.rtag-ski{background:#fdf2e4;color:#b87c12}.rtag-default{background:var(--cr);color:var(--gd)}
+.r-mini .rp{font-size:.9rem;color:var(--gm)}.r-mini .rp strong{color:var(--bk);font-size:1.2rem;font-family:'Playfair Display',serif}
+.r-mini .r-pistas{display:flex;gap:.3rem;margin-top:.6rem}
+.r-pistas span{width:22px;height:22px;border-radius:50%;font-size:.6rem;font-weight:700;color:var(--wh);display:flex;align-items:center;justify-content:center}
+.pv{background:#4caf50}.pa{background:#2196f3}.pr{background:#e53935}.pp{background:#212121}
+
+/* INCLUDED */
+.inc-sec{background:var(--bk);color:var(--wh)}
+.inc-sec .sec-h{color:var(--wh)}
+.inc-sec .sec-ey{color:var(--gm)}
+.inc-row{display:grid;grid-template-columns:repeat(6,1fr);gap:2rem;max-width:1100px;margin:0 auto;text-align:center}
+.inc-i .ic{width:48px;height:48px;margin:0 auto .75rem;display:flex;align-items:center;justify-content:center}
+.inc-i .ic svg{width:40px;height:40px;stroke:var(--acl);stroke-width:1.5;fill:none}
+.inc-i .il{font-size:.9rem;font-weight:500;color:rgba(255,255,255,.8);line-height:1.4}
+
+/* FAQ */
+.faq-sec{background:var(--ow)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--cr)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:500;color:var(--bk);cursor:pointer;text-align:left;gap:1rem}
+.faq-q:hover{color:var(--acd)}
+.faq-q .arr{transition:.3s;font-size:.85rem;color:var(--gm);flex-shrink:0}
+.faq-item.op .arr{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:.4s}
+.faq-item.op .faq-a{max-height:500px}
+.faq-a-in{padding:0 0 1.3rem;font-size:1rem;color:var(--gd);line-height:1.7}
+
+/* FORM */
+.form-sec{background:var(--wh)}
+.form-c{max-width:760px;margin:0 auto}
+.fb{margin-bottom:2.5rem}
+.fb-t{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--cr)}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:.8rem;font-weight:700;color:var(--gd);margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--cr);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--bk);background:var(--wh);transition:.3s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--bk)}
+.fg textarea{resize:vertical;min-height:80px}
+.fg-r{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.opt-block{background:var(--ow);border:1px solid var(--cr);border-radius:14px;padding:1.5rem;margin-bottom:1rem}
+.opt-block h5{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:1rem}
+.form-btn{width:100%;padding:1.1rem;background:var(--bk);color:var(--wh);border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;cursor:pointer;transition:.3s;margin-top:.5rem}
+.form-btn:hover{background:var(--ch)}
+.form-note{text-align:center;font-size:.85rem;color:var(--gm);margin-top:1rem}
+.form-ok{display:none;text-align:center;padding:4rem 2rem}
+.form-ok.act{display:block}
+.form-ok h3{font-size:2.2rem;margin-bottom:1rem}
+.form-ok p{color:var(--gd);line-height:1.7;font-size:1.05rem}
+.form-fields.hid{display:none}
+
+/* FOOTER */
+.footer{background:var(--bk);padding:4rem 3rem 2rem;color:rgba(255,255,255,.4)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;margin-bottom:3rem}
+.footer-logo img{height:36px}
+.footer-ct{font-size:.9rem;line-height:1.8}
+.footer-ct a{color:rgba(255,255,255,.6);text-decoration:none}
+.footer-ct a:hover{color:var(--ac)}
+.footer-bot{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;font-size:.8rem;line-height:1.6}
+
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:1000;justify-content:center;align-items:center;padding:2rem}
+.mo.act{display:flex}
+.modal{background:var(--wh);border-radius:20px;max-width:700px;width:100%;max-height:88vh;overflow-y:auto}
+.mo-close{position:absolute;top:1rem;right:1rem;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.4);color:white;border:none;font-size:1.2rem;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center}
+.mo-hero{height:260px;background-size:cover;background-position:center;border-radius:20px 20px 0 0;position:relative}
+.mo-body{padding:2.5rem}
+.mo-body h2{font-size:2.2rem;margin-bottom:.3rem}
+.mo-body .ml{font-size:.95rem;color:var(--gm);margin-bottom:1.25rem}
+.mo-body .md{font-size:1rem;color:var(--gd);line-height:1.7;margin-bottom:1.5rem}
+.mo-hl{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.5rem}
+.mo-hl span{font-size:.9rem;color:var(--gd)}
+.mo-pistas{display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.mo-pistas-i{display:flex;align-items:center;gap:.35rem;font-size:.85rem;color:var(--gd)}
+.mo-pistas-i span{width:24px;height:24px;border-radius:50%;font-size:.65rem;font-weight:700;color:var(--wh);display:flex;align-items:center;justify-content:center}
+.mo-pt{width:100%;border-collapse:collapse;margin-bottom:1.5rem}
+.mo-pt th{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--gm);font-weight:700;text-align:left;padding:.5rem 0;border-bottom:1px solid var(--cr)}
+.mo-pt td{padding:.55rem 0;font-size:.95rem;border-bottom:1px solid var(--cr)}
+.mo-pt td:last-child{font-weight:700;text-align:right}
+.mo-pt .season-label{font-size:.7rem;color:var(--gm);font-weight:400;display:block}
+.mo-cta{display:block;width:100%;text-align:center;background:var(--bk);color:var(--wh);padding:1rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;transition:.3s}
+.mo-cta:hover{background:var(--ch)}
+
+/* FLOAT */
+.float-cta{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--bk);color:var(--wh);padding:.9rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:.95rem;z-index:90;display:none;align-items:center;gap:.5rem;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:.3s}
+.float-cta.vis{display:inline-flex}
+.float-cta:hover{background:var(--ch);transform:translateY(-2px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.tl-grid{grid-template-columns:1fr 1fr}.tl-s::after{display:none}
+.feat-grid{grid-template-columns:1fr}.feat-card{height:340px}
+.inc-row{grid-template-columns:repeat(3,1fr)}
+.expert h2{font-size:1.8rem}
+}
+@media(max-width:600px){
+.hero,.tl-sec,.resorts-sec,.inc-sec,.faq-sec,.form-sec,.expert,.footer{padding-left:1.5rem;padding-right:1.5rem}
+.nav{padding:1rem 1.5rem}
+.nav-logo img{height:40px}
+.tl-grid{grid-template-columns:1fr}
+.inc-row{grid-template-columns:repeat(2,1fr)}
+.fg-r{grid-template-columns:1fr}
+.hero-info{gap:1.5rem}
+.hero h1{font-size:3rem}
+.mo-hl{grid-template-columns:1fr}
+.hero-cm{flex-direction:column;align-items:flex-start}
+body{font-size:16px}
+}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.22,1,.36,1)}
+.rv.vis{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+<div class="nav-logo">
+<img class="lw" src="https://gwtravel.com.br/wp-content/themes/gw-travel/assets/images/white-logo.svg" alt="GW Travel">
+<img class="ld" src="https://gwtravel.com.br/wp-content/themes/gw-travel/assets/images/black-logo.svg" alt="GW Travel">
+</div>
+<a href="#form" class="nav-cta">Pré-Cadastro →</a>
+</nav>
+
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-ov"></div>
+<div class="hero-c">
+<div class="hero-cm">
+<div class="hero-cm-badge"><span>Club Med · Snow Sales</span></div>
+<span class="hero-gw">por GW Travel — Agência Expert · Top vendedores Brasil</span>
+</div>
+<h1>Temporada<br><em>2027</em></h1>
+<div class="hero-info">
+<div class="hero-info-i"><strong>Até 20% OFF</strong>Resorts all-inclusive na neve</div>
+<div class="hero-info-i"><strong>24 a 27 de março</strong>Vendas abertas — vagas limitadas</div>
+<div class="hero-info-i"><strong>Nov/26 a Mai/27</strong>Período de viagem</div>
+</div>
+<div class="hero-acts">
+<a href="#form" class="btn-p">Fazer meu pré-cadastro →</a>
+<a href="#resorts" class="btn-s">Ver resorts</a>
+</div>
+</div>
+</section>
+
+<section class="expert rv">
+<div class="expert-inner">
+<div class="expert-label">Agência Expert Club Med</div>
+<h2>Quando a promoção abrir, você já chega <em>preparado</em></h2>
+<p>Com a GW Travel, sua viagem de ski começa semanas antes das vendas. Enquanto outros vão descobrir resorts e preços no dia, você já terá cotação na mão, resort escolhido e consultor dedicado. Somos reconhecidos como uma das maiores vendedoras de neve do Club Med no Brasil. Mesmo preço do site, atendimento incomparável.</p>
+</div>
+</section>
+
+<section class="sec tl-sec">
+<p class="sec-ey rv">Datas da promoção</p>
+<h2 class="sec-h rv">Como funciona a Snow Sales</h2>
+<div class="tl-intro rv">
+<div class="tl-now-badge">Estamos aqui — período de cotação</div>
+<p>Agora é o momento de fazer seu pré-cadastro e receber sua cotação personalizada. Isso é essencial para garantir sua vaga: quando as vendas abrirem, quem já estiver com resort e datas definidos terá vantagem real, pois as vagas esgotam em poucas horas.</p>
+</div>
+<div class="tl-grid rv">
+<div class="tl-s now"><div class="tl-dot"></div><div class="tl-dates">02 – 19 mar</div><div class="tl-title">Pré-Cadastro</div><div class="tl-desc">Faça seu pré-cadastro e receba sua cotação personalizada — essencial para garantir vaga</div><div class="tl-tag tl-tag-open">Aberto agora</div></div>
+<div class="tl-s"><div class="tl-dot"></div><div class="tl-dates">A partir de 20/mar</div><div class="tl-title">Platinum</div><div class="tl-desc">Início das vendas para Great Members Platinum</div><div class="tl-tag tl-tag-sale">Vendas</div></div>
+<div class="tl-s"><div class="tl-dot"></div><div class="tl-dates">A partir de 23/mar</div><div class="tl-title">Gold</div><div class="tl-desc">Abertura de vendas para membros Gold</div><div class="tl-tag tl-tag-sale">Vendas</div></div>
+<div class="tl-s"><div class="tl-dot"></div><div class="tl-dates">24 – 27 mar</div><div class="tl-title">Público geral</div><div class="tl-desc">Vendas abertas para todos — vagas limitadas, esgota rápido</div><div class="tl-tag tl-tag-sale">Vendas</div></div>
+</div>
+</section>
+
+<section class="sec resorts-sec" id="resorts">
+<p class="sec-ey rv">16 resorts na Europa e Canadá</p>
+<h2 class="sec-h rv">Escolha seu destino na neve</h2>
+
+<div class="filter-label rv">Perfil de viajante</div>
+<div class="filter-row rv" id="profileFilter">
+<button class="act" data-p="all">Todos</button>
+<button data-p="family">Famílias com crianças</button>
+<button data-p="young">Jovens & amigos</button>
+<button data-p="luxury">Luxo & Exclusive</button>
+<button data-p="value">Melhor custo-benefício</button>
+</div>
+<div class="filter-label rv" style="margin-top:1rem">País</div>
+<div class="filter-row rv" id="countryFilter">
+<button class="act" data-c="all">Todos</button>
+<button data-c="franca">França</button>
+<button data-c="italia">Itália</button>
+<button data-c="suica">Suíça</button>
+<button data-c="canada">Canadá</button>
+</div>
+
+<div class="piste-legend rv">
+<div class="piste-legend-i"><span class="pv"></span> Verde (iniciante)</div>
+<div class="piste-legend-i"><span class="pa"></span> Azul (intermediário)</div>
+<div class="piste-legend-i"><span class="pr"></span> Vermelha (avançado)</div>
+<div class="piste-legend-i"><span class="pp"></span> Preta (expert)</div>
+</div>
+
+<div class="feat-grid rv" id="featGrid"></div>
+<div class="all-grid rv" id="allGrid"></div>
+</section>
+
+<section class="sec inc-sec">
+<p class="sec-ey rv">All-inclusive</p>
+<h2 class="sec-h rv">Tudo incluído no pacote</h2>
+<div class="inc-row rv">
+<div class="inc-i"><div class="ic"><svg viewBox="0 0 48 48"><path d="M24 4L28 18L24 44M20 4L16 18L20 44M12 18H36M10 30H38"/></svg></div><div class="il">Ski Pass<br>completo</div></div>
+<div class="inc-i"><div class="ic"><svg viewBox="0 0 48 48"><circle cx="24" cy="10" r="5"/><path d="M18 20h12l-3 12h-6l-3-12zM15 44l5-12M33 44l-5-12M12 26h24"/></svg></div><div class="il">Aulas de ski<br>& snowboard</div></div>
+<div class="inc-i"><div class="ic"><svg viewBox="0 0 48 48"><path d="M18 44V18l6-14 6 14v26M14 44h20M18 26h12M18 34h12"/><circle cx="24" cy="10" r="2"/></svg></div><div class="il">Gastronomia<br>& open bar</div></div>
+<div class="inc-i"><div class="ic"><svg viewBox="0 0 48 48"><circle cx="24" cy="14" r="7"/><path d="M14 28c0-3 4-5 10-5s10 2 10 5v4H14v-4zM20 36v8M28 36v8"/></svg></div><div class="il">Mini Club<br>4–10 anos grátis</div></div>
+<div class="inc-i"><div class="ic"><svg viewBox="0 0 48 48"><path d="M8 38l8-12 8 6 8-16 8 10"/><rect x="6" y="6" width="36" height="36" rx="4"/></svg></div><div class="il">Entretenimento<br>diário</div></div>
+<div class="inc-i"><div class="ic"><svg viewBox="0 0 48 48"><path d="M8 36c0-8 7-16 16-16s16 8 16 16"/><path d="M16 36c0-4 3-8 8-8s8 4 8 8"/><circle cx="24" cy="20" r="4"/><path d="M6 40h36"/></svg></div><div class="il">Piscina &<br>Spa</div></div>
+</div>
+</section>
+
+<section class="sec faq-sec" id="faq">
+<p class="sec-ey rv">Dúvidas</p>
+<h2 class="sec-h rv">Perguntas frequentes</h2>
+<div class="faq-list rv" id="faqList"></div>
+</section>
+
+<section class="sec form-sec" id="form">
+<p class="sec-ey rv">Garanta sua vaga</p>
+<h2 class="sec-h rv">Pré-cadastro Snow Sales 2027</h2>
+<div class="form-c">
+<div class="form-fields rv" id="formFields">
+<div class="fb"><div class="fb-t">Seus dados</div>
+<div class="fg-r"><div class="fg"><label>Nome completo *</label><input type="text" id="nome" required placeholder="Seu nome"></div><div class="fg"><label>CPF *</label><input type="text" id="cpf" required placeholder="000.000.000-00" maxlength="14"></div></div>
+<div class="fg-r"><div class="fg"><label>E-mail *</label><input type="email" id="email" required placeholder="seu@email.com"></div><div class="fg"><label>WhatsApp *</label><input type="tel" id="whatsapp" required placeholder="(00) 00000-0000" maxlength="15"></div></div>
+<div class="fg-r"><div class="fg"><label>Great Members</label><select id="gm"><option value="">Selecione</option><option>Platinum</option><option>Gold</option><option>Silver</option><option>White</option><option>Não sou membro</option><option>Não sei</option></select></div><div class="fg"><label>Quem viaja?</label><select id="pax"><option value="">Selecione</option><option>Casal</option><option>Família — 2 adultos + 1-2 crianças</option><option>Família — 2 adultos + 3+ crianças</option><option>Grupo de amigos</option><option>Viajante solo</option><option>Outro</option></select></div></div>
+</div>
+<div class="fb"><div class="fb-t">Opção 1 — preferência principal</div><div class="opt-block"><div class="fg-r"><div class="fg"><label>Resort</label><select id="r1" class="rs"><option value="">Selecione</option></select></div><div class="fg"><label>Semana de check-in</label><select id="d1" class="ds"><option value="">Selecione</option></select></div></div></div></div>
+<div class="fb"><div class="fb-t">Opção 2 — alternativa</div><div class="opt-block"><div class="fg-r"><div class="fg"><label>Resort</label><select id="r2" class="rs"><option value="">Selecione</option></select></div><div class="fg"><label>Semana</label><select id="d2" class="ds"><option value="">Selecione</option></select></div></div></div></div>
+<div class="fb"><div class="fb-t">Opção 3 — backup</div><div class="opt-block"><div class="fg-r"><div class="fg"><label>Resort</label><select id="r3" class="rs"><option value="">Selecione</option></select></div><div class="fg"><label>Semana</label><select id="d3" class="ds"><option value="">Selecione</option></select></div></div></div></div>
+<div class="fb"><div class="fg"><label>Observações (opcional)</label><textarea id="obs" placeholder="Primeira vez no ski? Idade das crianças? Alguma preferência especial?"></textarea></div></div>
+<button class="form-btn" onclick="submitForm()">Enviar pré-cadastro</button>
+<p class="form-note">Seus dados são usados exclusivamente para preparar sua cotação personalizada.</p>
+</div>
+<div class="form-ok" id="formOk">
+<div style="font-size:4rem;margin-bottom:1rem">⛷️</div>
+<h3>Pré-cadastro recebido!</h3>
+<p>Nossa equipe já está preparando suas cotações personalizadas. Entraremos em contato pelo WhatsApp em até 24 horas.<br><br><strong>Lembre-se:</strong> as vendas abrem a partir de 20 de março (Platinum), 23 de março (Gold) e 24 a 27 de março (público geral). As vagas são limitadas. Com a GW, você chega preparado.</p>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-top">
+<div>
+<div class="footer-logo"><img src="https://gwtravel.com.br/wp-content/themes/gw-travel/assets/images/white-logo.svg" alt="GW Travel"></div>
+<p style="margin-top:.75rem;font-size:.9rem;color:rgba(255,255,255,.5)">Agência Expert Club Med<br>Top vendedores de neve no Brasil</p>
+</div>
+<div class="footer-ct">
+<strong style="color:rgba(255,255,255,.7)">Belo Horizonte</strong><br>
+<a href="https://wa.me/5531994862019">WhatsApp: (31) 99486-2019</a><br><br>
+<strong style="color:rgba(255,255,255,.7)">São Paulo</strong><br>
+<a href="https://wa.me/5511942889428">WhatsApp: (11) 94288-9428</a>
+</div>
+</div>
+<div class="footer-bot">
+GW Travel © 2026 — Todos os direitos reservados. Valores por adulto/semana na categoria base, all-inclusive. Não incluem taxa de inscrição, aéreo e transfers. Sujeito a disponibilidade. <a href="https://gwtravel.com.br" style="color:var(--ac);text-decoration:none">gwtravel.com.br</a>
+</div>
+</footer>
+
+<a href="#form" class="float-cta" id="floatCta">Pré-cadastro →</a>
+
+<div class="mo" id="mo" onclick="closeMo(event)">
+<div class="modal" id="modal">
+<button class="mo-close" onclick="closeMo(event,1)">✕</button>
+<div class="mo-hero" id="moHero"></div>
+<div class="mo-body" id="moBody"></div>
+</div>
+</div>
+
+<script>
+// ===== RESORT DATA =====
+const R=[
+{id:'tignes',n:'Tignes',co:'França',re:'franca',alt:'2.100m',dom:'300km · Espace Killy',
+airport:'Genebra (GVA) — ~3h',
+profiles:['family','young'],
+tags:['Ski-in/out','Todos os níveis','Flagship'],
+tagTypes:['ski','family','default'],
+img:'https://images.unsplash.com/photo-1565992441121-4367c2967103?w=800&q=80',
+desc:'Resort flagship a 2.100m no Espace Killy com 300km de pistas lendárias.',
+full:'Localizado na parte mais festiva de Tignes, em Val Claret. 2.100m de altitude com a maior piscina interna do Club Med nos Alpes. Espaço Exclusive Collection disponível. Pós-ski animado, perfeito para quem busca atmosfera vibrante com muita aventura na neve. Aceita bebês a partir de 2 anos (Petit Club).',
+hl:['Ski-in / Ski-out','300km de pistas','Maior piscina dos Alpes','Exclusive Collection','Petit Club (2-3 anos)','159 pistas no total'],
+pistas:{v:25,a:44,vm:69,p:21},featured:true,badgeType:'gw',badgeText:'★ Destaque GW',
+minAge:'0m (Petit Club)',baby:false,petit:true,mini:true,teens:true,
+dates:{'29/11 a 06/12':'R$ 13.449','06/12 a 13/12':'R$ 13.449','13/12 a 20/12':'R$ 14.095','20/12 a 27/12':'R$ 19.133','27/12 a 03/01':'R$ 23.347','03/01 a 10/01':'R$ 20.301','10/01 a 07/02':'R$ 20.301','07/02 a 14/02':'R$ 20.421','14/02 a 21/02':'R$ 22.938','21/02 a 07/03':'R$ 20.432','07/03 a 14/03':'R$ 17.201','14/03 a 28/03':'R$ 16.474','28/03 a 11/04':'R$ 15.136','11/04 a 18/04':'R$ 13.455','18/04 a 25/04':'R$ 11.345','25/04 a 02/05':'R$ 10.170'},
+seasonLabels:{'29/11 a 06/12':'Início temporada','06/12 a 13/12':'Início temporada','13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 10/01':'Janeiro','10/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada','18/04 a 25/04':'Final temporada','25/04 a 02/05':'Final temporada'},
+low:'R$ 10.170'},
+
+{id:'alpe',n:"Alpe d'Huez",co:'França',re:'franca',alt:'1.860m',dom:'250km · Grand Domaine',
+airport:'Genebra (GVA) ou Grenoble (GNB) — ~2h30',
+profiles:['family'],
+tags:['300 dias de sol','Baby Club','Pista mais longa da Europa'],
+tagTypes:['family','family','ski'],
+img:'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80',
+desc:'A "Ilha do Sol" — 300 dias de sol/ano, ideal para famílias com crianças de todas as idades.',
+full:'Estação ensolarada no cruzamento de 6 vales entre França, Itália e Suíça. Acesso à Sarenne — a pista preta mais longa da Europa (16km). Baby Club a partir de 4 meses, Petit Club, Mini Club e Teens. Piscina climatizada interna, Spa. Perfeito para famílias e amigos.',
+hl:['300 dias de sol','Pista Sarenne 16km','Baby Club (4-23 meses)','Piscina panorâmica','Spa','111 pistas no total'],
+pistas:{v:15,a:30,vm:31,p:35},featured:true,badgeType:'gw',badgeText:'★ Destaque GW',
+minAge:'0m (Baby Club)',baby:true,petit:true,mini:true,teens:true,
+dates:{'06/12 a 13/12':'R$ 12.454','13/12 a 20/12':'R$ 13.059','20/12 a 27/12':'R$ 18.054','27/12 a 03/01':'R$ 20.680','03/01 a 07/02':'R$ 17.562','07/02 a 14/02':'R$ 18.724','14/02 a 21/02':'R$ 19.834','21/02 a 07/03':'R$ 18.724','07/03 a 14/03':'R$ 15.836','14/03 a 21/03':'R$ 14.989','21/03 a 28/03':'R$ 14.703','28/03 a 04/04':'R$ 13.963','04/04 a 11/04':'R$ 13.703','11/04 a 18/04':'R$ 12.457'},
+seasonLabels:{'06/12 a 13/12':'Início temporada','13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 21/03':'Março','21/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada'},
+low:'R$ 12.454'},
+
+{id:'valdisere',n:"Val d'Isère",co:'França',re:'franca',alt:'1.850m',dom:'300km · Espace Killy',
+airport:'Genebra (GVA) — ~3h',
+profiles:['luxury'],
+tags:['100% Exclusive Collection','5 Tridents','Alta gastronomia'],
+tagTypes:['luxury','luxury','default'],
+img:'https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&q=80',
+desc:'O primeiro e único resort 100% Exclusive Collection nas montanhas. 5 Tridents — o máximo em luxo.',
+full:'Vila alpina mais elegante e autêntica dos Alpes. Infraestrutura 100% Exclusive Collection com acomodações sofisticadas, gastronomia da Savoia, ambientes de bem-estar e serviços sob medida. Piscina, Spa, ski-in/ski-out. Ideal para amantes de ski, alta gastronomia e experiências premium. Somente Mini Club e Teens (sem Baby/Petit).',
+hl:['100% Exclusive Collection','5 Tridents','Gastronomia premium','Ski-in / Ski-out','Spa','159 pistas'],
+pistas:{v:25,a:44,vm:69,p:21},featured:true,badgeType:'gw',badgeText:'★ Destaque GW',
+minAge:'0m (Mini Club)',baby:false,petit:false,mini:true,teens:true,
+dates:{'06/12 a 13/12':'R$ 15.929','13/12 a 20/12':'R$ 17.522','20/12 a 27/12':'R$ 23.777','27/12 a 03/01':'R$ 27.271','03/01 a 07/02':'R$ 24.087','07/02 a 14/02':'R$ 24.295','14/02 a 21/02':'R$ 26.800','21/02 a 07/03':'R$ 24.295','07/03 a 14/03':'R$ 20.363','14/03 a 28/03':'R$ 19.446','28/03 a 04/04':'R$ 18.528','04/04 a 11/04':'R$ 17.274','11/04 a 18/04':'R$ 15.238','18/04 a 25/04':'R$ 12.938','25/04 a 02/05':'R$ 11.623'},
+seasonLabels:{'06/12 a 13/12':'Início temporada','13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada','18/04 a 25/04':'Final temporada','25/04 a 02/05':'Final temporada'},
+low:'R$ 11.623'},
+
+{id:'larosiere',n:'La Rosière',co:'França',re:'franca',alt:'1.950m',dom:'160km · San Bernardo',
+airport:'Genebra (GVA) — ~2h30',
+profiles:['family'],
+tags:['Baby Club','Vista 180°','Franco-italiano'],
+tagTypes:['family','default','default'],
+img:'https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=800&q=80',
+desc:'Experiência íntima com vista 180° para o Vale da Tarentaise. Baby Club desde 4 meses.',
+full:'Vista panorâmica de 180° para o Vale da Tarentaise, na fronteira franco-italiana do Espace San Bernardo. Acesso direto ao vilarejo italiano La Thuile. Baby Club (4-23 meses), Petit Club, Mini Club, Teens. Piscina interna e externa, Spa. Espaço Exclusive Collection inaugurado em 2023. Perfeito para famílias com crianças pequenas.',
+hl:['Baby Club (4-23 meses)','Vista 180° Tarentaise','Franco-italiano','Exclusive Collection','Piscina int. e ext.','82 pistas'],
+pistas:{v:14,a:35,vm:25,p:8},featured:true,badgeType:'gw',badgeText:'★ Destaque GW',
+minAge:'0m (Baby Club)',baby:true,petit:true,mini:true,teens:true,
+dates:{'13/12 a 20/12':'R$ 12.693','20/12 a 27/12':'R$ 17.476','27/12 a 03/01':'R$ 20.162','03/01 a 07/02':'R$ 16.506','07/02 a 14/02':'R$ 18.199','14/02 a 21/02':'R$ 18.976','21/02 a 07/03':'R$ 18.199','07/03 a 14/03':'R$ 14.297','14/03 a 28/03':'R$ 14.297','28/03 a 04/04':'R$ 13.705','04/04 a 11/04':'R$ 13.130','11/04 a 18/04':'R$ 12.133'},
+seasonLabels:{'13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada'},
+low:'R$ 12.133'},
+
+{id:'valthorens',n:'Val Thorens',co:'França',re:'franca',alt:'2.300m',dom:'600km · 3 Vallées',
+airport:'Genebra (GVA) ou Lyon (LYS) — ~3h',
+profiles:['young'],
+tags:['Foco adulto','Après-ski','Maior domínio do mundo'],
+tagTypes:['young','young','ski'],
+img:'https://images.unsplash.com/photo-1520208422220-d12a3c588e6c?w=800&q=80',
+desc:'Estação mais alta da Europa, no maior domínio do mundo. Sem Mini Club — foco em adultos e jovens.',
+full:'A 2.300m, estação mais alta da Europa no coração dos 3 Vallées (600km de pistas). NÃO tem Mini Club — foco adulto com escalada, motoneve, mountain bike na neve. Idade mínima 2 anos. Programação perfeita para amigos: lareira, degustação savoyarde, diversão noturna. Spa incluído.',
+hl:['Mais alta da Europa','600km — 3 Vallées','SEM Mini Club','Motoneve & escalada','Spa','336 pistas'],
+pistas:{v:35,a:111,vm:142,p:48},featured:true,badgeType:'young',badgeText:'Ideal para jovens & amigos',
+minAge:'2 anos',baby:false,petit:false,mini:false,teens:true,
+dates:{'22/11 a 29/11':'R$ 10.654','29/11 a 06/12':'R$ 12.168','06/12 a 13/12':'R$ 12.659','13/12 a 20/12':'R$ 13.558','20/12 a 27/12':'R$ 17.886','27/12 a 03/01':'R$ 20.572','03/01 a 07/02':'R$ 17.655','07/02 a 14/02':'R$ 17.538','14/02 a 21/02':'R$ 18.057','21/02 a 07/03':'R$ 17.538','07/03 a 14/03':'R$ 16.039','14/03 a 28/03':'R$ 15.347','28/03 a 04/04':'R$ 14.712','04/04 a 11/04':'R$ 13.624','11/04 a 18/04':'R$ 12.175','18/04 a 25/04':'R$ 10.385','25/04 a 02/05':'R$ 9.174'},
+seasonLabels:{'22/11 a 29/11':'Início temporada','29/11 a 06/12':'Início temporada','06/12 a 13/12':'Início temporada','13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada','18/04 a 25/04':'Final temporada','25/04 a 02/05':'Final temporada'},
+low:'R$ 9.174'},
+
+{id:'arcs',n:'Arcs Panorama',co:'França',re:'franca',alt:'1.750m',dom:'425km · Paradiski',airport:'Genebra (GVA) ou Lyon (LYS) — ~3h',profiles:['family'],tags:['Vista Mont Blanc','Paradiski','Baby Club'],tagTypes:['default','ski','family'],img:'https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&q=80',desc:'Vista 180° para o Mont Blanc no Paradiski de 425km. Baby Club disponível.',full:'Vista panorâmica incluindo Mont Blanc. Conectado ao Paradiski (425km) via Vanoise Express. Baby Club (4-23 meses), Petit Club, Mini Club, Teens. Estilo moderno acolhedor. Exclusive Collection disponível.',hl:['Vista Mont Blanc','Paradiski 425km','Baby Club','Exclusive Collection','Piscina','258 pistas'],pistas:{v:34,a:77,vm:129,p:18},featured:false,minAge:'0m',baby:true,petit:true,mini:true,teens:true,dates:{'13/12 a 20/12':'R$ 13.729','20/12 a 27/12':'R$ 18.570','27/12 a 03/01':'R$ 21.404','03/01 a 07/02':'R$ 17.277','07/02 a 14/02':'R$ 19.875','14/02 a 21/02':'R$ 21.043','21/02 a 07/03':'R$ 19.875','07/03 a 14/03':'R$ 16.777','14/03 a 28/03':'R$ 15.486','28/03 a 04/04':'R$ 14.801','04/04 a 11/04':'R$ 14.251','11/04 a 18/04':'R$ 12.578','18/04 a 25/04':'R$ 10.596'},seasonLabels:{'13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada','18/04 a 25/04':'Final temporada'},low:'R$ 10.596'},
+
+{id:'serre',n:'Serre Chevalier',co:'França',re:'franca',alt:'1.400m',dom:'250km',airport:'Turin (TRN) — ~2h ou Grenoble (GNB) — ~2h30',profiles:['family'],tags:['Renovado 2024','Baby Club','Spa Payot'],tagTypes:['default','family','luxury'],img:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80',desc:'Totalmente renovado em 2024 com Spa Payot. Baby Club desde 4 meses.',full:'Renovação de 50M€. Novo Spa Payot, quartos ampliados, 3 novos restaurantes, nova gôndola Pontillas. Baby Club (4-23 meses), Petit Club, Mini Club, Teens. Chalé alpino a 1.400m. Ski-in/ski-out.',hl:['Renovação 50M€','Baby Club','Spa Payot','Ski-in/out','3 restaurantes','81 pistas'],pistas:{v:13,a:29,vm:26,p:13},featured:false,minAge:'0m',baby:true,petit:true,mini:true,teens:true,dates:{'20/12 a 27/12':'R$ 17.597','27/12 a 03/01':'R$ 20.728','03/01 a 07/02':'R$ 16.175','07/02 a 14/02':'R$ 18.670','14/02 a 21/02':'R$ 19.642','21/02 a 07/03':'R$ 18.670','07/03 a 14/03':'R$ 15.043','14/03 a 21/03':'R$ 14.184','21/03 a 28/03':'R$ 14.184','28/03 a 04/04':'R$ 13.492','04/04 a 11/04':'R$ 12.994'},seasonLabels:{'20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 21/03':'Março','21/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada'},low:'R$ 12.994'},
+
+{id:'laplagne',n:'La Plagne 2100',co:'França',re:'franca',alt:'2.100m',dom:'425km · Paradiski',airport:'Genebra (GVA) ou Lyon (LYS) — ~3h',profiles:['family','value'],tags:['Custo-benefício','Paradiski','Mont Blanc'],tagTypes:['value','ski','default'],img:'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80',desc:'Melhor custo-benefício a 2.100m com vista pro Mont Blanc.',full:'Um dos melhores custos-benefício do Club Med. 2.100m, Paradiski 425km. Idade mínima 2 anos. Petit Club, Mini Club, Teens. Ski-in/ski-out. Moderno e aconchegante.',hl:['Custo-benefício top','Paradiski 425km','Vista Mont Blanc','Ski-in/out','Petit Club (2-3 anos)','258 pistas'],pistas:{v:34,a:77,vm:129,p:18},featured:false,minAge:'2a',baby:false,petit:true,mini:true,teens:true,dates:{'13/12 a 20/12':'R$ 10.459','20/12 a 27/12':'R$ 14.779','27/12 a 03/01':'R$ 16.665','03/01 a 07/02':'R$ 13.195','07/02 a 14/02':'R$ 15.166','14/02 a 21/02':'R$ 15.776','21/02 a 07/03':'R$ 15.166','07/03 a 14/03':'R$ 12.649','14/03 a 28/03':'R$ 11.589','28/03 a 04/04':'R$ 11.168','04/04 a 11/04':'R$ 10.809','11/04 a 18/04':'R$ 9.734'},seasonLabels:{'13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada'},low:'R$ 9.734'},
+
+{id:'larosiereec',n:'La Rosière Exclusive',co:'França',re:'franca',alt:'1.950m',dom:'160km · 5 Tridents',airport:'Genebra (GVA) — ~2h30',profiles:['luxury'],tags:['5 Tridents','Concierge','Champagne incluído'],tagTypes:['luxury','luxury','luxury'],img:'https://images.unsplash.com/photo-1610571757796-929a19e34ebc?w=800&q=80',desc:'O máximo de luxo na neve. Suítes exclusivas, champagne e concierge dedicado.',full:'Espaço Exclusive Collection 5 Tridents em La Rosière. Suítes exclusivas, concierge dedicado, room service, champagne incluído, transfer privativo.',hl:['5 Tridents','Suítes exclusivas','Concierge','Champagne incluído','Transfer privativo','Room service'],pistas:{v:14,a:35,vm:25,p:8},featured:false,minAge:'0m',baby:true,petit:true,mini:true,teens:true,dates:{'13/12 a 20/12':'R$ 22.635','20/12 a 27/12':'R$ 33.027','27/12 a 03/01':'R$ 38.525','03/01 a 07/02':'R$ 30.140','07/02 a 14/02':'R$ 34.638','14/02 a 21/02':'R$ 36.277','21/02 a 07/03':'R$ 34.638','07/03 a 14/03':'R$ 25.938','14/03 a 28/03':'R$ 25.938','28/03 a 04/04':'R$ 24.621','04/04 a 11/04':'R$ 23.414','11/04 a 18/04':'R$ 21.636'},seasonLabels:{'13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada'},low:'R$ 21.636'},
+
+{id:'grandmassif',n:'Grand Massif Samoëns',co:'França',re:'franca',alt:'1.600m',dom:'265km',airport:'Genebra (GVA) — ~1h30',profiles:['family'],tags:['Vila medieval','Baby Club','1h30 de Genebra'],tagTypes:['default','family','default'],img:'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=80',desc:'Vila medieval autêntica a 1h30 de Genebra. Baby Club desde 4 meses.',full:'Resort na vila medieval de Samoëns, patrimônio da Savoia. Grand Massif 265km. Baby Club, Petit Club, Mini Club, Teens. Opção de Chalés com lareira. Fácil acesso a 1h30 de Genebra.',hl:['Vila medieval','Baby Club','265km pistas','Opção Chalés','1h30 de Genebra','139 pistas'],pistas:{v:11,a:44,vm:59,p:25},featured:false,minAge:'0m',baby:true,petit:true,mini:true,teens:true,dates:{'20/12 a 27/12':'R$ 16.668','27/12 a 03/01':'R$ 18.417','03/01 a 07/02':'R$ 14.436','07/02 a 14/02':'R$ 17.505','14/02 a 21/02':'R$ 18.385','21/02 a 07/03':'R$ 16.279','07/03 a 28/03':'R$ 14.184','28/03 a 04/04':'R$ 13.492'},seasonLabels:{'20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 28/03':'Março','28/03 a 04/04':'Final temporada'},low:'R$ 13.492'},
+
+{id:'peisey',n:'Peisey-Vallandry',co:'França',re:'franca',alt:'1.600m',dom:'425km · Paradiski',airport:'Genebra (GVA) ou Lyon (LYS) — ~3h',profiles:['family','value'],tags:['Acolhedor','Paradiski','Petit Club'],tagTypes:['family','ski','family'],img:'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=800&q=80',desc:'Resort intimista no Paradiski. Piscina interna e externa. Estrutura familiar.',full:'Intimista e acolhedor na Savóia. Paradiski 425km via Vanoise Express. Petit Club, Mini Club, Teens. Piscina interna e externa. Estilo savoiardo tradicional. Ótima estrutura para família.',hl:['Intimista','Paradiski 425km','Piscina int. e ext.','Petit Club','Estilo savoiardo','258 pistas'],pistas:{v:34,a:77,vm:129,p:18},featured:false,minAge:'0m',baby:false,petit:true,mini:true,teens:true,dates:{'13/12 a 20/12':'R$ 11.430','20/12 a 27/12':'R$ 15.541','27/12 a 03/01':'R$ 17.496','03/01 a 07/02':'R$ 14.265','07/02 a 14/02':'R$ 17.219','14/02 a 21/02':'R$ 17.911','21/02 a 07/03':'R$ 17.219','07/03 a 14/03':'R$ 14.291','14/03 a 28/03':'R$ 13.475','28/03 a 04/04':'R$ 12.818','04/04 a 11/04':'R$ 12.344','11/04 a 18/04':'R$ 11.414'},seasonLabels:{'13/12 a 20/12':'Pré-Natal','20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Março','28/03 a 04/04':'Final temporada','04/04 a 11/04':'Final temporada','11/04 a 18/04':'Final temporada'},low:'R$ 11.414'},
+
+{id:'valmorel',n:'Valmorel',co:'França',re:'franca',alt:'1.460m',dom:'165km · Grand Domaine',airport:'Genebra (GVA) ou Lyon (LYS) — ~2h30',profiles:['family'],tags:['Charme savoiardo','Baby Club','Spa Caritas'],tagTypes:['default','family','luxury'],img:'https://images.unsplash.com/photo-1542224566-6e85f2e6772f?w=800&q=80',desc:'Vila charmosa com vista pro Mont Blanc. Baby Club e Spa Caritas.',full:'Vila pitoresca com vista majestosa do Mont Blanc. Baby Club, Petit Club, Mini Club, Teens. Club Med SPA by CARITAS. Exclusive Collection e opção Chalés. Perfeito para primeira viagem na neve.',hl:['Charme savoiardo','Baby Club','Spa Caritas','Exclusive Collection','Opção Chalés','103 pistas'],pistas:{v:8,a:20,vm:48,p:27},featured:false,minAge:'0m',baby:true,petit:true,mini:true,teens:true,dates:{'20/12 a 27/12':'R$ 14.716','27/12 a 03/01':'R$ 17.018','03/01 a 07/02':'R$ 13.653','07/02 a 14/02':'R$ 16.973','14/02 a 21/02':'R$ 18.195','21/02 a 28/02':'R$ 17.492','28/02 a 07/03':'R$ 16.268','07/03 a 28/03':'R$ 12.916','28/03 a 04/04':'R$ 12.108'},seasonLabels:{'20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 28/02':'Fevereiro','28/02 a 07/03':'Março','07/03 a 28/03':'Março','28/03 a 04/04':'Final temporada'},low:'R$ 12.108'},
+
+{id:'pragelato',n:'Pragelato Sestriere',co:'Itália',re:'italia',alt:'1.600m',dom:'400km · Via Lattea',airport:'Turin (TRN) — ~1h30',profiles:['family','value'],tags:['Itália','Olimpíadas 2006','400km pistas'],tagTypes:['default','default','ski'],img:'https://images.unsplash.com/photo-1445109673451-c511bb51a8c4?w=800&q=80',desc:'Resort italiano na Via Lattea com 400km e gastronomia piemontesa.',full:'Charmosa aldeia no Piemonte. Chalés de madeira em paisagens intocadas. Teleférico direto para Sestriere (Olimpíadas 2006). Via Lattea 400km. Idade mínima 2 anos. Petit Club, Mini Club, Teens. Piscina e Spa.',hl:['Via Lattea 400km','Gastronomia italiana','Olimpíadas 2006','Chalés de madeira','Spa','249 pistas'],pistas:{v:42,a:120,vm:80,p:7},featured:false,minAge:'2a',baby:false,petit:true,mini:true,teens:true,dates:{'20/12 a 27/12':'R$ 14.953','27/12 a 03/01':'R$ 16.178','03/01 a 07/02':'R$ 12.842','07/02 a 14/02':'R$ 15.998','14/02 a 21/02':'R$ 16.867','21/02 a 28/02':'R$ 15.998','28/02 a 07/03':'R$ 14.879','07/03 a 14/03':'R$ 12.339'},seasonLabels:{'20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 28/02':'Fevereiro','28/02 a 07/03':'Março','07/03 a 14/03':'Março'},low:'R$ 12.339'},
+
+{id:'stmoritz',n:'Saint Moritz Roi Soleil',co:'Suíça',re:'suica',alt:'1.800m',dom:'350km · Haute-Engadine',airport:'Zurique (ZRH) — ~3h30 ou Milão (MXP) — ~3h',profiles:['value'],tags:['Suíça','Mais acessível','Lagos congelados'],tagTypes:['default','value','default'],img:'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80',desc:'O lendário destino suíço — surpreendentemente o mais acessível do portfólio.',full:'Berço do turismo de inverno, 2x sede olímpica. 350km de pistas. Mini Club e Teens (sem Baby/Petit). Piscina interna. Próximo ao lago. Surpreendentemente o resort mais acessível do Club Med neve. Obs: sem pistas verdes, mas turmas com instrutores para iniciantes.',hl:['Destino lendário','350km pistas','Mais acessível','2x Olimpíadas','Lagos congelados','88 pistas'],pistas:{v:35,a:22,vm:31,p:0},featured:false,minAge:'0m',baby:false,petit:false,mini:true,teens:true,dates:{'20/12 a 27/12':'R$ 11.612','27/12 a 03/01':'R$ 13.242','03/01 a 07/02':'R$ 10.611','07/02 a 14/02':'R$ 11.410','14/02 a 21/02':'R$ 11.978','21/02 a 07/03':'R$ 11.410','07/03 a 14/03':'R$ 9.906','14/03 a 28/03':'R$ 9.341'},seasonLabels:{'20/12 a 27/12':'Natal','27/12 a 03/01':'Ano Novo','03/01 a 07/02':'Janeiro','07/02 a 14/02':'Fevereiro','14/02 a 21/02':'Carnaval/Férias','21/02 a 07/03':'Fevereiro/Março','07/03 a 14/03':'Março','14/03 a 28/03':'Final temporada'},low:'R$ 9.341'},
+
+{id:'quebec',n:'Québec Charlevoix',co:'Canadá',re:'canada',alt:'800m',dom:'Le Massif',airport:'Québec (YQB) — ~1h30',profiles:['family'],tags:['Canadá','Rio São Lourenço','Escola de circo'],tagTypes:['default','default','family'],img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',desc:'Primeiro resort de montanha do Club Med nas Américas. Check-in sáb a sáb.',full:'Primeiro resort montanha nas Américas, à beira do Rio São Lourenço. Baby Club, Petit Club, Mini Club, Teens. Escola de circo, patinação no gelo. Exclusive Collection disponível. Culinária franco-canadense. Check-in sábado a sábado.',hl:['1º nas Américas','Rio São Lourenço','Baby Club','Escola de circo','Exclusive Collection','Sáb a sáb'],pistas:{v:19,a:10,vm:16,p:8},featured:false,minAge:'0m',baby:true,petit:true,mini:true,teens:true,dates:{'12/12 a 19/12':'R$ 11.832','19/12 a 26/12':'R$ 16.913','26/12 a 02/01':'R$ 24.725','02/01 a 13/02':'R$ 14.007','13/02 a 20/02':'R$ 17.336','20/02 a 27/02':'R$ 14.007','27/02 a 06/03':'R$ 17.336','06/03 a 13/03':'R$ 14.007','13/03 a 03/04':'R$ 17.336','03/04 a 10/04':'R$ 12.627'},seasonLabels:{'12/12 a 19/12':'Pré-Natal','19/12 a 26/12':'Natal','26/12 a 02/01':'Ano Novo','02/01 a 13/02':'Janeiro/Fevereiro','13/02 a 20/02':'Fevereiro','20/02 a 27/02':'Fevereiro','27/02 a 06/03':'Março','06/03 a 13/03':'Março','13/03 a 03/04':'Março/Abril','03/04 a 10/04':'Final temporada'},low:'R$ 11.832'}
+];
+
+const faqs=[
+{q:'O que está incluído no preço?',a:'Hospedagem all-inclusive: 3 refeições gourmet/dia, open bar premium, ski pass, aulas de ski/snowboard em grupo, Mini Club Med (4-10 anos grátis), crianças até 4 anos gratuitas, piscina, entretenimento diário. Não inclui: aéreo, transfers, taxa de inscrição e aluguel de equipamento.'},
+{q:'Preciso saber esquiar?',a:'Não! Aulas em grupo estão inclusas para todos os níveis, do iniciante total ao avançado. Iniciantes começam aula na segunda — por isso o check-in é domingo (Europa) ou sábado (Canadá).'},
+{q:'Como funciona o pagamento?',a:'Parcelamento em até 8x sem juros nos cartões Visa, MasterCard, Elo e Diners, ou em até 4x no American Express. Não é possível combinar com outros descontos ou promoções vigentes.'},
+{q:'Posso cancelar?',a:'Compras feitas durante a Snow Sales (período de 21 a 28 de março): trocas e cancelamentos só podem ser feitos após o período da promoção. Para cancelamentos: reservas pagas com carta de saldo geram nova carta com validade de 1 ano a partir da emissão. Até 30/abril/2026: multa de 20%. De 1/maio até 30 dias antes do check-in: reembolso integral. Dentro de 30 dias do check-in: aplicam-se as Condições Gerais do Club Med.'},
+{q:'Qual resort ideal para crianças pequenas?',a:'La Rosière, Alpe d\'Huez, Serre Chevalier e Valmorel têm Baby Club (a partir de 4 meses). Para crianças de 2+ anos, todas as opções são ótimas. Val Thorens NÃO tem Mini Club — é focado em adultos.'},
+{q:'Qual resort para jovens/amigos?',a:'Val Thorens é o destino #1: sem Mini Club, foco adulto com après-ski vibrante, motoneve, escalada e 600km de pistas no maior domínio do mundo (3 Vallées). Tignes também tem atmosfera festiva.'},
+{q:'Qual o mais barato?',a:'Saint Moritz (Suíça) a partir de R$ 9.341/semana. Val Thorens (R$ 9.174 em final de temporada) e La Plagne (R$ 9.734) também têm ótimo custo-benefício.'},
+{q:'O aluguel de equipamento está incluído?',a:'Não. O aluguel de equipamento de ski e snowboard (esquis, botas, capacete, bastões) não está incluído no pacote all-inclusive. A GW Travel pode organizar o aluguel para você com parceiros locais. O Club Med também oferece serviço de aluguel diretamente nos resorts.'},
+{q:'As aulas de ski estão incluídas?',a:'Sim! Aulas em grupo com instrutores certificados (ESF na Europa) estão inclusas no pacote para todos os níveis. Aulas particulares podem ser contratadas à parte nos resorts, com custo adicional.'},
+{q:'O transfer do aeroporto está incluído?',a:'Não. O transfer do aeroporto até o resort não está incluído no pacote Snow Sales. A GW Travel organiza transfers privativos ou compartilhados para você. Nos resorts Exclusive Collection, o transfer privativo é incluído. Cada resort tem um aeroporto de referência — consulte os detalhes de cada destino.'},
+{q:'Por que comprar com a GW Travel?',a:'Somos agência Expert Club Med e entre as maiores vendedoras de neve do Brasil. Preparamos sua cotação antes da promoção abrir, para você garantir vaga no dia. Mesmo preço do site oficial, atendimento personalizado, pacote completo (voo + transfer + seguro).'}
+];
+
+// ===== RENDER =====
+let curProfile='all',curCountry='all';
+
+function tagClass(t){return t==='family'?'rtag-family':t==='young'?'rtag-young':t==='luxury'?'rtag-luxury':t==='value'?'rtag-value':t==='ski'?'rtag-ski':'rtag-default'}
+
+function filterResorts(){
+return R.filter(r=>{
+let pm=curProfile==='all'||r.profiles.includes(curProfile);
+let cm=curCountry==='all'||r.re===curCountry;
+return pm&&cm;
+});
+}
+
+function render(){
+const list=filterResorts();
+const fg=document.getElementById('featGrid');
+const ag=document.getElementById('allGrid');
+
+// When filtering, ALL resorts show as featured photo cards
+const isFiltering = curProfile!=='all' || curCountry!=='all';
+
+if(isFiltering){
+// Show ALL filtered results as photo cards
+fg.style.display='grid';
+fg.innerHTML=list.map(r=>`
+<div class="feat-card" onclick="openMo('${r.id}')">
+<div class="feat-card-bg" style="background-image:url('${r.img}')"></div>
+<div class="feat-card-ov"></div>
+<div class="feat-card-c">
+${r.featured&&r.badgeText?`<div class="feat-badge ${r.badgeType||'gw'}">${r.badgeText}</div>`:''}
+<h3>${r.n}</h3>
+<p class="fl">${r.co} · ${r.alt} · ${r.dom}</p>
+<p class="fp">a partir de <strong>${r.low}</strong> /semana</p>
+<div class="fpistas"><span class="pv">${r.pistas.v}</span><span class="pa">${r.pistas.a}</span><span class="pr">${r.pistas.vm}</span><span class="pp">${r.pistas.p}</span></div>
+</div>
+</div>`).join('');
+ag.innerHTML='';
+} else {
+// Default view: featured cards + mini cards
+const feat=list.filter(r=>r.featured);
+const rest=list.filter(r=>!r.featured);
+
+if(feat.length){
+fg.style.display='grid';
+fg.innerHTML=feat.map(r=>`
+<div class="feat-card" onclick="openMo('${r.id}')">
+<div class="feat-card-bg" style="background-image:url('${r.img}')"></div>
+<div class="feat-card-ov"></div>
+<div class="feat-card-c">
+<div class="feat-badge ${r.badgeType}">${r.badgeText}</div>
+<h3>${r.n}</h3>
+<p class="fl">${r.co} · ${r.alt} · ${r.dom}</p>
+<p class="fp">a partir de <strong>${r.low}</strong> /semana</p>
+<div class="fpistas"><span class="pv">${r.pistas.v}</span><span class="pa">${r.pistas.a}</span><span class="pr">${r.pistas.vm}</span><span class="pp">${r.pistas.p}</span></div>
+</div>
+</div>`).join('');
+} else {fg.style.display='none';}
+
+ag.innerHTML=rest.map(r=>`
+<div class="r-mini" onclick="openMo('${r.id}')">
+<h4>${r.n}</h4>
+<p class="rc">${r.co} · ${r.alt}${r.airport?' · ✈ '+r.airport.split('—')[0].trim():''}</p>
+<div class="rtags">${r.tags.map((t,i)=>`<span class="rtag ${tagClass(r.tagTypes?.[i]||'default')}">${t}</span>`).join('')}</div>
+<p class="rp">a partir de <strong>${r.low}</strong> /semana</p>
+<div class="r-pistas"><span class="pv">${r.pistas.v}</span><span class="pa">${r.pistas.a}</span><span class="pr">${r.pistas.vm}</span><span class="pp">${r.pistas.p}</span></div>
+</div>`).join('');
+}
+}
+
+function renderFaq(){
+document.getElementById('faqList').innerHTML=faqs.map(f=>`
+<div class="faq-item" onclick="this.classList.toggle('op')">
+<button class="faq-q">${f.q}<span class="arr">+</span></button>
+<div class="faq-a"><div class="faq-a-in">${f.a}</div></div>
+</div>`).join('');
+}
+
+function populateForm(){
+const opts=R.map(r=>`<option value="${r.id}">${r.n} — ${r.co}</option>`).join('')+`<option value="naosei">Não sei — quero orientação</option>`;
+document.querySelectorAll('.rs').forEach(s=>{s.innerHTML=`<option value="">Selecione o resort</option>`+opts;});
+document.querySelectorAll('.rs').forEach(s=>{
+s.addEventListener('change',function(){
+const ds=document.getElementById(this.id.replace('r','d'));
+const resort=R.find(r=>r.id===this.value);
+if(!resort){ds.innerHTML='<option value="">Selecione</option>';return;}
+ds.innerHTML='<option value="">Selecione a semana</option>'+Object.entries(resort.dates).map(([k,v])=>{
+const label=resort.seasonLabels&&resort.seasonLabels[k]?' ('+resort.seasonLabels[k]+')':'';
+return `<option value="${k}">${k}${label} — a partir de ${v}</option>`;
+}).join('');
+});
+});
+}
+
+function openMo(id){
+const r=R.find(x=>x.id===id);if(!r)return;
+document.getElementById('moHero').style.backgroundImage=`url('${r.img}')`;
+const prices=Object.entries(r.dates).map(([k,v])=>{
+const sl=r.seasonLabels&&r.seasonLabels[k]?`<span class="season-label">${r.seasonLabels[k]}</span>`:'';
+return `<tr><td>${k}${sl}</td><td>a partir de ${v}</td></tr>`;
+}).join('');
+let clubs=[];
+if(r.baby)clubs.push('Baby Club (4-23 meses)');
+if(r.petit)clubs.push('Petit Club (2-3 anos)');
+if(r.mini)clubs.push('Mini Club (4-10 anos)');
+if(r.teens)clubs.push('Teens & Chill (11-17 anos)');
+document.getElementById('moBody').innerHTML=`
+<h2>${r.n}</h2>
+<p class="ml">${r.co} · ${r.alt} · ${r.dom}${r.airport?' · ✈ '+r.airport:''}</p>
+<p class="md">${r.full}</p>
+<div class="mo-hl">${r.hl.map(h=>`<span>✓ ${h}</span>`).join('')}</div>
+<div class="mo-pistas">
+<div class="mo-pistas-i"><span class="pv">${r.pistas.v}</span> Verde (iniciante)</div>
+<div class="mo-pistas-i"><span class="pa">${r.pistas.a}</span> Azul (intermediário)</div>
+<div class="mo-pistas-i"><span class="pr">${r.pistas.vm}</span> Vermelha (avançado)</div>
+<div class="mo-pistas-i"><span class="pp">${r.pistas.p}</span> Preta (expert)</div>
+</div>
+<p style="font-size:.85rem;color:var(--gd);margin-bottom:1rem"><strong>Clubes infantis:</strong> ${clubs.length?clubs.join(' · '):'Consultar'}</p>
+<table class="mo-pt"><thead><tr><th>Semana</th><th>Valor/adulto</th></tr></thead><tbody>${prices}</tbody></table>
+<a href="#form" class="mo-cta" onclick="document.getElementById('mo').classList.remove('act');document.body.style.overflow='';document.getElementById('r1').value='${r.id}';document.getElementById('r1').dispatchEvent(new Event('change'));">Escolher este resort →</a>`;
+document.getElementById('mo').classList.add('act');
+document.body.style.overflow='hidden';
+}
+
+function closeMo(e,f){if(f||e.target===document.getElementById('mo')){document.getElementById('mo').classList.remove('act');document.body.style.overflow='';}}
+
+function submitForm(){
+const n=document.getElementById('nome').value,c=document.getElementById('cpf').value,e=document.getElementById('email').value,w=document.getElementById('whatsapp').value;
+if(!n||!c||!e||!w){alert('Preencha os campos obrigatórios (*)');return;}
+document.getElementById('formFields').classList.add('hid');
+document.getElementById('formOk').classList.add('act');
+}
+
+// MASKS
+document.getElementById('cpf').addEventListener('input',function(e){let v=e.target.value.replace(/\D/g,'');if(v.length>11)v=v.slice(0,11);if(v.length>9)v=v.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/,'$1.$2.$3-$4');else if(v.length>6)v=v.replace(/(\d{3})(\d{3})(\d{1,3})/,'$1.$2.$3');else if(v.length>3)v=v.replace(/(\d{3})(\d{1,3})/,'$1.$2');e.target.value=v;});
+document.getElementById('whatsapp').addEventListener('input',function(e){let v=e.target.value.replace(/\D/g,'');if(v.length>11)v=v.slice(0,11);if(v.length>6)v=v.replace(/(\d{2})(\d{5})(\d{1,4})/,'($1) $2-$3');else if(v.length>2)v=v.replace(/(\d{2})(\d{1,5})/,'($1) $2');e.target.value=v;});
+
+// NAV + FLOAT
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('sc',scrollY>80);document.getElementById('floatCta').classList.toggle('vis',scrollY>700);});
+
+// FILTERS
+document.querySelectorAll('#profileFilter button').forEach(b=>{b.addEventListener('click',function(){document.querySelectorAll('#profileFilter button').forEach(x=>x.classList.remove('act'));this.classList.add('act');curProfile=this.dataset.p;render();});});
+document.querySelectorAll('#countryFilter button').forEach(b=>{b.addEventListener('click',function(){document.querySelectorAll('#countryFilter button').forEach(x=>x.classList.remove('act'));this.classList.add('act');curCountry=this.dataset.c;render();});});
+
+// REVEAL
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// INIT
+render();renderFaq();populateForm();
+</script>
+</body>
+</html>
